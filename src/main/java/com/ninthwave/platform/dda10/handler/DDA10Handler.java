@@ -5,22 +5,19 @@ import java.util.UUID;
 import com.ninthwave.platform.dda10.mapper.DDA10EELRequestMapper;
 import com.ninthwave.platform.dda10.mapper.DDA10EELResponseMapper;
 import com.ninthwave.platform.dda10.model.DDA10AccountListRequest;
-import com.ninthwave.platform.dda10.model.Greeting;
 import com.ninthwave.platform.eel.handler.EELHandler;
 import com.ninthwave.platform.exceptions.BadGatewayException;
 import com.ninthwave.platform.model.Response;
 import com.ninthwave.platform.runner.Runner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Handler for dealing with our DDA1.0 endpoints
  */
 @RestController
+@RequestMapping("dda10")
 public class DDA10Handler {
 
     @Autowired

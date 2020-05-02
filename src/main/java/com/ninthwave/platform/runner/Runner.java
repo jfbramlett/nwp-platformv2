@@ -1,5 +1,6 @@
 package com.ninthwave.platform.runner;
 
+import com.ninthwave.platform.aspects.LogExecution;
 import com.ninthwave.platform.eel.model.EELRequest;
 import com.ninthwave.platform.eel.model.EELResponse;
 import com.ninthwave.platform.exceptions.BaseException;
@@ -25,6 +26,7 @@ public class Runner {
 
     }
 
+    @LogExecution
     public ResponseEntity<Response> run(final Request request,
                                         Function<Request, EELRequest> requestMapper,
                                         Function<EELRequest, EELResponse> executor,
