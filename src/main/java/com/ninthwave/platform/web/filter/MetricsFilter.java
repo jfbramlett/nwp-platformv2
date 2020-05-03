@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * A filter that defines a set of metrics around each incoming http request.
+ */
 @Component
 public class MetricsFilter implements Filter {
     @Override

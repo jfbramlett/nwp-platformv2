@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.UUID;
 
+/**
+ * This filter defines a unique request id and places it in the request's
+ * Context. It also sets it in the logging MDC (ammped document context).
+ */
 @Component
 public class CorrelationFilter implements Filter {
     private static final String REQUEST_ID_KEY = "requestId";

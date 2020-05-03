@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * A web filter that establishes our context in the handling thread local.
+ */
 @Component
 public class ContextFilter implements Filter {
     private static final String REQUEST_ID_KEY = "requestId";
@@ -26,6 +29,6 @@ public class ContextFilter implements Filter {
 
         chain.doFilter(request, response);
 
-        Context.clearContext();
+        Context.initContext();
     }
 }

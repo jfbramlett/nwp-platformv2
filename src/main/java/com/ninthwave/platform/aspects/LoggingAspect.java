@@ -7,10 +7,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * Aspect that is invoked any time the annotation @LogExection is defined.
+ */
 @Aspect
 @Component
 public class LoggingAspect {
 
+    /**
+     * Logs our execution info
+     *
+     * @param joinPoint The joinpoint details
+     * @return Object The result of the underlying requests
+     * @throws Throwable
+     */
     @Around("@annotation(LogExecution)")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         Logger logger = LoggerFactory.getLogger(joinPoint.getSignature().getDeclaringType());

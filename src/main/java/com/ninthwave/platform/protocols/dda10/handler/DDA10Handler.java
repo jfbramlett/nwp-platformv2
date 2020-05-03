@@ -7,7 +7,7 @@ import com.ninthwave.platform.eel.handler.EELHandler;
 import com.ninthwave.platform.exceptions.BadGatewayException;
 import com.ninthwave.platform.protocols.model.Response;
 import com.ninthwave.platform.runner.Runner;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,16 +16,13 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("dda10")
+@RequiredArgsConstructor
 public class DDA10Handler {
 
-    @Autowired
-    private EELHandler eelHandler;
-    @Autowired
-    private DDA10EELResponseMapper responseMapper;
-    @Autowired
-    private DDA10EELRequestMapper requestMapper;
-    @Autowired
-    private Runner runner;
+    private final EELHandler eelHandler;
+    private final DDA10EELResponseMapper responseMapper;
+    private final DDA10EELRequestMapper requestMapper;
+    private final Runner runner;
 
     /**
      * Gets the list of accounts for the active user

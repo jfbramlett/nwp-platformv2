@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Logs each incoming web request.
+ *
+ */
 @Component
 public class LoggingFilter implements Filter {
 
