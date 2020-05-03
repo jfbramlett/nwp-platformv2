@@ -15,11 +15,11 @@ public class LoggingAspect {
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         Logger logger = LoggerFactory.getLogger(joinPoint.getSignature().getDeclaringType());
         long timer = System.currentTimeMillis();
-        logger.debug("starting method: " + joinPoint.getSignature().getName());
+        logger.info("starting method: " + joinPoint.getSignature().getName());
         Object result = joinPoint.proceed();
 
         long execMillis = System.currentTimeMillis() - timer;
-        logger.debug("completed method: " + joinPoint.getSignature().getName() + " in " + execMillis + "ms");
+        logger.info("completed method: " + joinPoint.getSignature().getName() + " in " + execMillis + "ms");
         return result;
     }
 }
