@@ -1,9 +1,9 @@
-package com.ninthwave.platform.dda10.mapper;
+package com.ninthwave.platform.protocols.dda10.mapper;
 
-import com.ninthwave.platform.dda10.model.DDA10AccountListRequest;
+import com.ninthwave.platform.protocols.dda10.model.DDA10AccountListRequest;
 import com.ninthwave.platform.eel.model.AccountListRequest;
 import com.ninthwave.platform.eel.model.EELRequest;
-import com.ninthwave.platform.model.Request;
+import com.ninthwave.platform.protocols.model.Request;
 import org.springframework.stereotype.Component;
 
 /**

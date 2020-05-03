@@ -1,4 +1,4 @@
-package com.ninthwave.platform.model;
+package com.ninthwave.platform.protocols.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

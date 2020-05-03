@@ -1,11 +1,11 @@
-package com.ninthwave.platform.dda10.mapper;
+package com.ninthwave.platform.protocols.dda10.mapper;
 
-import com.ninthwave.platform.dda10.model.DDA10AccountListResponse;
-import com.ninthwave.platform.dda10.model.DDA10AccountResponse;
+import com.ninthwave.platform.protocols.dda10.model.DDA10AccountListResponse;
+import com.ninthwave.platform.protocols.dda10.model.DDA10AccountResponse;
 import com.ninthwave.platform.eel.model.AccountListResponse;
 import com.ninthwave.platform.eel.model.AccountResponse;
 import com.ninthwave.platform.eel.model.EELResponse;
-import com.ninthwave.platform.model.Response;
+import com.ninthwave.platform.protocols.model.Response;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

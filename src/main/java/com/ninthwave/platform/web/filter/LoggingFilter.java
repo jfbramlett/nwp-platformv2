@@ -1,4 +1,4 @@
-package com.ninthwave.platform.filter;
+package com.ninthwave.platform.web.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

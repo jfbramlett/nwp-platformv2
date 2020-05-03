@@ -1,7 +1,7 @@
-package com.ninthwave.platform.dda10.model;
+package com.ninthwave.platform.protocols.dda10.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.ninthwave.platform.model.Response;
+import com.ninthwave.platform.protocols.model.Response;
 import lombok.*;
 
 import java.util.List;

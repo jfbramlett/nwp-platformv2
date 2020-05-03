@@ -1,6 +1,6 @@
-package com.ninthwave.platform.dda10.model;
+package com.ninthwave.platform.protocols.dda10.model;
 
-import com.ninthwave.platform.model.Request;
+import com.ninthwave.platform.protocols.model.Request;
 import lombok.*;
 
 /**

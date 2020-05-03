@@ -1,4 +1,4 @@
-package com.ninthwave.platform.filter;
+package com.ninthwave.platform.web.filter;
 
 import com.ninthwave.platform.context.Context;
 import org.slf4j.MDC;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 @Component
-public class ContextFilter implements Filter {
+public class CorrelationFilter implements Filter {
     private static final String REQUEST_ID_KEY = "requestId";
 
     @Override
@@ -23,11 +23,17 @@ public class ContextFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
+        String requestId = req.getHeader(REQUEST_ID_KEY);
+        if (requestId == null) {
+            requestId = UUID.randomUUID().toString();
+        }
+
+        MDC.put(REQUEST_ID_KEY, requestId);
+
         Context ctx = Context.getContext();
-        ctx.addValue("requestTime", System.currentTimeMillis());
+        ctx.addValue(REQUEST_ID_KEY, requestId);
+        Context.setContext(ctx);
 
         chain.doFilter(request, response);
-
-        Context.clearContext();
     }
 }
