@@ -25,5 +25,9 @@ public class ContextFilter implements Filter {
 
         Context ctx = Context.getContext();
         ctx.addValue("requestTime", System.currentTimeMillis());
+
+        chain.doFilter(request, response);
+
+        Context.clearContext();
     }
 }

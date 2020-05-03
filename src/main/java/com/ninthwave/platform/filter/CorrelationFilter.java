@@ -33,5 +33,7 @@ public class CorrelationFilter implements Filter {
         Context ctx = Context.getContext();
         ctx.addValue(REQUEST_ID_KEY, requestId);
         Context.setContext(ctx);
+
+        chain.doFilter(request, response);
     }
 }
