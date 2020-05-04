@@ -14,7 +14,7 @@ public class Metrics {
 
     /**
      * Gets a new meter
-     * @param name The name of the meter
+     * @param name The name of the meter (will be named meter.&lt;name&gt;)
      * @return Meter The meter
      */
     public static Meter getMeter(String name) {
@@ -23,13 +23,18 @@ public class Metrics {
 
     /**
      * Gets a new timer
-     * @param name The name of the timer
+     * @param name The name of the timer (will be named timer.&lt;name&gt;)
      * @return Timer The timer
      */
     public static Timer getTimer(String name) {
         return registry.timer("timer." + name);
     }
 
+    /**
+     * Gets a new counter
+     * @param name The name of the counter (will be named counter.&lt;name&gt;)
+     * @return Counter The counter
+     */
     public static Counter getCounter(String name) {
         return registry.counter("counter." + name);
     }
