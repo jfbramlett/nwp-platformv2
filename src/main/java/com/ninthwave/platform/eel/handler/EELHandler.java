@@ -2,6 +2,7 @@ package com.ninthwave.platform.eel.handler;
 
 import com.ninthwave.platform.eel.model.*;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.UUID;
  */
 @Component
 public class EELHandler {
+    private RestTemplate restTemplate = new RestTemplate();
+
     public EELHandler() {
     }
 
@@ -23,14 +26,8 @@ public class EELHandler {
      * @return EELResponse The account list response in EEL format
      */
     public EELResponse getAccountList(final EELRequest eRequest) {
-        AccountListRequest request = (AccountListRequest) eRequest;
+        AccountListResponse response = restTemplate.getForObject("http://localhost:8083/samplefi/accountlist", AccountListResponse.class);
 
-        List<AccountResponse> accounts = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            accounts.add(new AccountResponse(UUID.randomUUID().toString(), UUID.randomUUID().toString(), UUID.randomUUID().toString(),
-                    new BigDecimal("55.5"), UUID.randomUUID().toString()));
-        }
-
-        return new AccountListResponse(accounts);
+        return response;
     }
 }
