@@ -1,8 +1,8 @@
 package com.ninthwave.samplefi.filter;
 
-import com.ninthwave.platform.context.Context;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
+import com.ninthwave.samplefi.context.Context;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

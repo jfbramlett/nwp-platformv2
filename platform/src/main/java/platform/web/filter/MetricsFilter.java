@@ -1,4 +1,4 @@
-package com.ninthwave.samplefi.filter;
+package com.ninthwave.platform.web.filter;
 
 import com.codahale.metrics.Meter;
 import com.codahale.metrics.Timer;
@@ -24,7 +24,7 @@ public class MetricsFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
-        String metricName = req.getRequestURI().replace("/", ".");
+        String metricName = req.getRequestURI().replace("/", "");
 
         Meter meter = Metrics.getMeter(metricName);
         meter.mark();

@@ -1,10 +1,9 @@
-package com.ninthwave.platform.web.filter;
+package com.ninthwave.samplefi.filter;
 
 import com.codahale.metrics.Meter;
 import com.codahale.metrics.Timer;
-import com.ninthwave.platform.metrics.Metrics;
 import org.springframework.stereotype.Component;
-
+import com.ninthwave.samplefi.metrics.Metrics;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,12 +23,12 @@ public class MetricsFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
-        String metricName = req.getRequestURI().replace("/", ".");
+        String metricName = req.getRequestURI().replace("/", "");
 
-        Meter meter = Metrics.getMeter(metricName);
+        Meter meter = com.ninthwave.samplefi.metrics.Metrics.getMeter(metricName);
         meter.mark();
 
-        Metrics.getCounter(metricName + ".requests").inc();
+        com.ninthwave.samplefi.metrics.Metrics.getCounter(metricName + ".requests").inc();
 
         Timer timer = Metrics.getTimer(req.getRequestURI());
         Timer.Context ctx = timer.time();

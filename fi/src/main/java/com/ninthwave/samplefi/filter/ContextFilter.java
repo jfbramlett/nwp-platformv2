@@ -1,6 +1,6 @@
 package com.ninthwave.samplefi.filter;
 
-import com.ninthwave.platform.context.Context;
+import com.ninthwave.samplefi.context.Context;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
