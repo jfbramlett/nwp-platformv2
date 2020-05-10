@@ -1,6 +1,8 @@
 package com.ninthwave.platform.eel.handler;
 
 import com.ninthwave.platform.eel.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,9 +17,19 @@ import java.util.UUID;
  */
 @Component
 public class EELHandler {
+    private static final Logger logger = LoggerFactory.getLogger(EELHandler.class);
+
     private RestTemplate restTemplate = new RestTemplate();
 
+    private final String host;
+
     public EELHandler() {
+        String envHost = System.getenv("SAMPLE-FI-HOST");
+        if (envHost == null) {
+            logger.info("No external host defined, using localhost");
+            envHost = "localhost";
+        }
+        this.host = envHost;
     }
 
     /**
@@ -26,7 +38,9 @@ public class EELHandler {
      * @return EELResponse The account list response in EEL format
      */
     public EELResponse getAccountList(final EELRequest eRequest) {
-        AccountListResponse response = restTemplate.getForObject("http://localhost:8083/samplefi/accountlist", AccountListResponse.class);
+        String url = "http://" + host + ":8083/samplefi/accountlist";
+        logger.info("Calling external service for account list: " + url);
+        AccountListResponse response = restTemplate.getForObject(url, AccountListResponse.class);
 
         return response;
     }

@@ -16,7 +16,7 @@
 	<description>All ninthwave platform details</description>
 
 	<modules>
-		<module>fi</module>
+		<module>sample-fi</module>
 		<module>platform</module>
 	</modules>
 </project>

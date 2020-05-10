@@ -1,0 +1,12 @@
+version: '3'
+services:
+  platform:
+    image: platform:latest
+    ports:
+      - "8080:8080"
+    environment:
+      SAMPLE-FI-HOST: sample-fi
+  sample-fi:
+    image: "sample-fi:latest"
+    ports:
+      - "8083:8083"
